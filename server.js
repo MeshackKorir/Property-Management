@@ -12,6 +12,8 @@ app.use(express.json());
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/property', require('./routes/property'));
+app.use('/api/landlord', require('./routes/landlord'));
+
 
 
 mongoose.connect(process.env.MONGO_URI)
