@@ -8,4 +8,4 @@ const PropertySchema = new mongoose.Schema({
   caretaker: { type: mongoose.Schema.Types.ObjectId, ref: 'User' } // optional
 });
 
-module.exports = mongoose.model('Property', PropertySchema);
+module.exports = mongoose.models.Property || mongoose.model('Property', PropertySchema);

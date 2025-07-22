@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 const auth = require('../middleware/auth');
 const checkRole = require('../middleware/roles');
-const Property = require('../models/property');
-const Unit = require('../models/unit');
+const Property = require('../models/Property');
+const Unit = require('../models/Unit');
 
 // Register a Property
 router.post('/register-property', auth, checkRole(['Admin', 'Landlord']), async (req, res) => {

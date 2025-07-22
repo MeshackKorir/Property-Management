@@ -13,7 +13,9 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/property', require('./routes/property'));
 app.use('/api/landlord', require('./routes/landlord'));
-
+app.use('/api/meter', require('./routes/meter'));
+app.use('/api/reading', require('./routes/Reading'));
+app.use('/api/invoice', require('./routes/invoice'));
 
 
 mongoose.connect(process.env.MONGO_URI)
