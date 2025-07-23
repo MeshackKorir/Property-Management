@@ -16,6 +16,11 @@ app.use('/api/landlord', require('./routes/landlord'));
 app.use('/api/meter', require('./routes/meter'));
 app.use('/api/reading', require('./routes/Reading'));
 app.use('/api/invoice', require('./routes/invoice'));
+app.use('/api/tenant', require('./routes/tenants'));
+app.use('/api/maintenance', require('./routes/maintainance'));
+app.use('/api/payments', require('./routes/payments'));
+app.use('/api/lease', require('./routes/lease'));
+app.use('/api/reports', require('./routes/reports'));
 
 
 mongoose.connect(process.env.MONGO_URI)
