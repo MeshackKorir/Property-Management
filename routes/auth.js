@@ -17,7 +17,6 @@ router.post('/register', async (req, res) => {
     let user = await User.findOne({ email });
     if (user) return res.status(400).json({ msg: 'User already exists' });
 
-    // Force role to Tenant
     user = new User({ name, email, password, role: 'Tenant' });
 
     const salt = await bcrypt.genSalt(10);
@@ -36,9 +35,7 @@ router.post('/register', async (req, res) => {
   }
 });
 
-// ==============================
-// Login (All users)
-// ==============================
+
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
@@ -60,9 +57,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// ==============================
-// Create User (Admin + Landlord only)
-// ==============================
+
 router.post('/create-user', auth, checkRole(['Admin', 'Landlord']), async (req, res) => {
   const { name, email, password, role } = req.body;
 
@@ -70,7 +65,6 @@ router.post('/create-user', auth, checkRole(['Admin', 'Landlord']), async (req, 
     let allowedRoles = ['Admin', 'Landlord', 'Caretaker', 'ServiceProvider'];
 
     if (req.user.role === 'Landlord') {
-      // Landlords can ONLY create Caretaker or ServiceProvider
       allowedRoles = ['Caretaker', 'ServiceProvider', 'Tenant'];
     }
 

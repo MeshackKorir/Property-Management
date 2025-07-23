@@ -21,6 +21,7 @@ app.use('/api/maintenance', require('./routes/maintainance'));
 app.use('/api/payments', require('./routes/payments'));
 app.use('/api/lease', require('./routes/lease'));
 app.use('/api/reports', require('./routes/reports'));
+app.use('/api/notifications', require('./routes/notifications'));
 
 
 mongoose.connect(process.env.MONGO_URI)
